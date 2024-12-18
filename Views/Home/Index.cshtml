@@ -2,7 +2,65 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="header">
+        <div class="search-bar">
+            <label for="search-by">Buscar por:</label>
+            <select id="search-by">
+                <option value="1">Descripción</option>
+                <option value="2">Código</option>
+                <option value="3">Código Reducido</option>
+                <option value="4">Código del Fabricante</option>
+                <option value="5">Fabricante</option>
+            </select>
+            <input type="text" placeholder="Palabras clave...">
+            <button class="btn">Buscar</button>
+        </div>
+        <div class="logo">
+            <img src="..\img\logo2.png" alt="pump control">
+        </div>
+    </div>
+    <div class="results-section">
+        <label for="results">Resultados:</label>
+        <select id="results">
+            <option value="table">Tabla</option>
+        </select>
+        <button class="btn">TABLA</button>
+    </div>
+    <div class="form-container">
+        <div class="form-group">
+            <label>Tipo</label>
+            <input type="text">
+            <label>Código</label>
+            <input type="text">
+            <label>Stock en Depósito</label>
+            <input type="text">
+            <button class="btn small">Formula</button>
+            <button class="btn small">Seg de Formula</button>
+        </div>
+        <div class="form-group">
+            <label>Código Reducido</label>
+            <input type="text">
+        </div>
+        <div class="form-group">
+            <label>Descripción</label>
+            <textarea></textarea>
+        </div>
+        <div class="form-group">
+            <label>Código del Fabricante</label>
+            <input type="text">
+        </div>
+        <div class="form-group">
+            <label>Descripción Complementaria</label>
+            <textarea></textarea>
+        </div>
+        <div class="form-group">
+            <label>Fabricante</label>
+            <input type="text">
+        </div>
+    </div>
+    <div class="status-section">
+        <p class="not-for-sale">NO APTO PARA LA VENTA</p>
+        <div class="placeholder"></div>
+    </div>
 </div>
