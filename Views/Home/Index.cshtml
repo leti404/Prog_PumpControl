@@ -3,62 +3,82 @@
 }
 
 <div class="container">
-    <div class="header">
-        <div class="search-bar">
+    <!-- Formulario de búsqueda -->
+    <form action='@Url.Action("Busqueda")' asp-action="Buscar" method="get">
+        <div class="seleccion" id="searchSelection">
             <label for="search-by">Buscar por:</label>
-            <select id="search-by">
-                <option value="1">Descripción</option>
+            <select asp-for="tipoBusqueda" class="inputdatos" id="search-by" onchange="toggleAdditionalFields()" required>
+                <option value="1" selected>Descripción</option>
                 <option value="2">Código</option>
                 <option value="3">Código Reducido</option>
                 <option value="4">Código del Fabricante</option>
                 <option value="5">Fabricante</option>
             </select>
-            <input type="text" placeholder="Palabras clave...">
-            <button class="btn">Buscar</button>
+            
+            <div id="additionalFields"></div>
+            
+            <label for="textoBusqueda">Palabras clave:</label>
+            <input asp-for="textoBusqueda" type="text" class="inputdatos" id="textoBusqueda" placeholder="Palabras clave...">
+            
+            <div class="button-container">
+                <button type="submit" class="search-button">BUSCAR</button>
+            </div>
         </div>
-        <div class="logo">
-            <img src="..\img\logo2.png" alt="pump control">
-        </div>
-    </div>
+    </form>
+
+
+
     <div class="results-section">
-        <label for="results">Resultados:</label>
+        <label for="results">Resultados encontrados: @ViewBag.CountResEncont</label>
+        <!-- BD count de cant datos encontrados similares descripcxion -->
         <select id="results">
-            <option value="table">Tabla</option>
+            @foreach (Producto producto in ViewBag.ListaProdTabla)
+            {
+                <option value="@producto.descripcion">@producto.descripcion</option>
+            }
         </select>
-        <button class="btn">TABLA</button>
+
+        @if (@ViewBag.CountResEncont > 0)
+        {
+            <a href='@Url.Action("Tabla", "Home")'>
+                <button class="btn">TABLA</button>
+            </a>
+        }
+        else
+        {
+
+        }
     </div>
+
     <div class="form-container">
         <div class="form-group">
             <label>Tipo</label>
-            <input type="text">
+            <div class="input-block">@ViewBag.ProductoTop1.Tipo</div>
             <label>Código</label>
-            <input type="text">
+            <div class="input-block">@ViewBag.ProductoTop1.Codigo</div>
             <label>Stock en Depósito</label>
-            <input type="text">
+            <div class="input-block">@ViewBag.ProductoTop1.StockDeposito</div>
             <button class="btn small">Formula</button>
             <button class="btn small">Seg de Formula</button>
         </div>
         <div class="form-group">
             <label>Código Reducido</label>
-            <input type="text">
+            <div class="input-block">@ViewBag.ProductoTop1.CodigoReducido</div>
         </div>
         <div class="form-group">
             <label>Descripción</label>
-            <textarea></textarea>
+            <div class="input-block">@ViewBag.ProductoTop1.Descripcion</div>
         </div>
         <div class="form-group">
             <label>Código del Fabricante</label>
-            <input type="text">
-        </div>
-        <div class="form-group">
-            <label>Descripción Complementaria</label>
-            <textarea></textarea>
+            <div class="input-block">@ViewBag.ProductoTop1.CodigoFabricante</div>
         </div>
         <div class="form-group">
             <label>Fabricante</label>
-            <input type="text">
+            <div class="input-block">@ViewBag.ProductoTop1.Fabricante</div>
         </div>
     </div>
+
     <div class="status-section">
         <p class="not-for-sale">NO APTO PARA LA VENTA</p>
         <div class="placeholder"></div>

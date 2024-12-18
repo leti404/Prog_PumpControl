@@ -1,0 +1,32 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">TIPO</th>
+      <th scope="col">CÓDIGO</th>
+      <th scope="col">DESCRIPCIÓN</th>
+      <th scope="col">DESCRIPCIÓN COMP</th>
+      <th scope="col">CÓDIGO REDUCIDO</th>
+      <th scope="col">CÓDIGO FABRICANTE</th>
+      <th scope="col">FABRICANTE</th>
+      <th scope="col">STOCK</th>
+      <th scope="col">FOTO</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach(Producto producto in ViewBag.ListaProdTabla)
+    {
+        <tr>
+        <th scope="row">1</th>
+        <td>@producto.tipo</td>
+        <td>@producto.descripcion</td>
+        <td>@producto.descComprador</td>
+        <td>@producto.codRedu</td>
+        <td>@producto.codFab</td>
+        <td>@producto.fabricante</td>
+        <td>@producto.stock</td>
+        <td>@producto.foto</td>
+        </tr>
+    }
+
+  </tbody>
+</table>

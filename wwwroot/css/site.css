@@ -20,27 +20,24 @@ body {
   border: 1px solid #e0e0e0;
 }
 
-/* Header Styling */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
-  border-bottom: 2px solid #0092d1; /* Blue accent */
+  border-bottom: 2px solid #0092d1;
   padding-bottom: 10px;
 }
 
-.logo h1 {
-  color: #ffffff;
-  background-color: #0092d1;
+.logo img{
   display: inline-block;
   padding: 10px 20px;
   border-radius: 8px;
   font-size: 1.5em;
   letter-spacing: 2px;
+  width: 250px;
+  height: auto;
 }
-
-/* Search Bar */
 .search-bar {
   display: flex;
   align-items: center;
