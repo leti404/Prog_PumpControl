@@ -13,6 +13,12 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    [HttpPost]
+    public IActionResult Index(int tipoBusqueda, string textoBusqueda, string codiCorto)
+    {
+        ViewBag.ListaNombresProduBusqueda = BD.ListaBusquedaNombProdu(tipoBusqueda, textoBusqueda, codiCorto);
+        return View();
+    }
     public IActionResult Index()
     {
         return View();

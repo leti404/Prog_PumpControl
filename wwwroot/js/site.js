@@ -6,10 +6,10 @@
         additionalFieldsContainer.innerHTML = `
             <label for="codiCorto">Código Corto:</label>
             <select asp-for="CodiCorto" class="inputdatos" id="codiCorto">
-                <option value="" selected>Seleccione un código</option>
-                <option value="A">Opción A</option>
-                <option value="B">Opción B</option>
-                <option value="C">Opción C</option>
+            @foreach (string MiniCod in BD.ObtenerListaCodigos())
+            {
+                <option value="@MiniCod">@MiniCod</option>
+            }
             </select>
         `;
     } else if (searchBy === "5") { // Fabricante
